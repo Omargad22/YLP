@@ -4,12 +4,14 @@
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-    initLoader(); // Added
+    initLoader();
     initMobileMenu();
     initScrollAnimations();
-    initScrollTop(); // Added
+    initScrollTop();
     initVideoPlayer();
     setupNewsletter();
+    initScrollProgress();
+    initPageAnimation();
 });
 
 // Loading Spinner
@@ -215,4 +217,32 @@ function setupNewsletter() {
         `;
         document.head.appendChild(style);
     }
+}
+
+// ========================================
+// Scroll Progress Indicator
+// ========================================
+function initScrollProgress() {
+    // Create the progress bar element
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// ========================================
+// Page Load Animation
+// ========================================
+function initPageAnimation() {
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 600); // After loader hides
+    });
 }
