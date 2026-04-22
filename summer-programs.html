@@ -33,6 +33,12 @@
                 <li><a href="educational-programs.html" class="nav-link">البرامج التعليمية</a></li>
                 <li><a href="summer-programs.html" class="nav-link active">البرامج الصيفية</a></li>
                 <li><a href="about-us.html" class="nav-link">تعرف علينا</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <i data-lucide="moon" class="icon-moon"></i>
+                        <i data-lucide="sun" class="icon-sun"></i>
+                    </button>
+                </li>
                 <li><button class="btn btn-register">تسجيل الدخول</button></li>
             </ul>
         </div>
@@ -409,7 +415,7 @@
     <footer style="position: relative; overflow: hidden;">
         <!-- CTA Section (Top) -->
         <div
-            style="background: linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 100%); padding: 5rem 0 5rem; text-align: center; border-top: 1px solid #E5E7EB;">
+            style="background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-section-alt) 100%); padding: 5rem 0 5rem; text-align: center; border-top: 1px solid var(--border-color);">
             <div class="container">
                 <div
                     style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem;">
@@ -447,16 +453,18 @@
 
                     <!-- Title -->
                     <div>
-                        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; color: #111827;">
+                        <h2
+                            style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main, #111827);">
                             استثمر في مستقبل ابنك
                         </h2>
-                        <h3 style="font-size: 1.8rem; font-weight: 700; color: #4B5563; margin-bottom: 1rem;">
+                        <h3
+                            style="font-size: 1.8rem; font-weight: 700; color: var(--text-muted, #4B5563); margin-bottom: 1rem;">
                             التعلّم يبدأ من هنا!
                         </h3>
                     </div>
 
                     <!-- Subtitle -->
-                    <p style="font-size: 1.1rem; color: #6B7280; max-width: 500px;">
+                    <p style="font-size: 1.1rem; color: var(--text-light, #6B7280); max-width: 500px;">
                         انضم الآن لأكثر من ١٠٠٠ ولي أمر وثقوا بنا
                     </p>
 

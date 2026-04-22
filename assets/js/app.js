@@ -246,3 +246,31 @@ function initPageAnimation() {
         }, 600); // After loader hides
     });
 }
+
+// ========================================
+// Theme Toggle Logic
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const LOCALE_STORAGE_THEME_KEY = 'ylp-theme';
+
+    // 1. Check for saved theme or system preference
+    const savedTheme = localStorage.getItem(LOCALE_STORAGE_THEME_KEY);
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        htmlElement.setAttribute('data-theme', 'dark');
+    }
+
+    // 2. toggle click handler
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem(LOCALE_STORAGE_THEME_KEY, newTheme);
+        });
+    }
+});
